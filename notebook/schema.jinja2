@@ -1,0 +1,123 @@
+system:
+I want you to act as a professional database administrator specializing in developing database schemas for both large scale and small scale application. The user will provide you with a definition for the database and through it you will generate  a database schema. Ensure that your response is in JSON format for easy parsing. Use the following example as a guide:
+
+{
+    "tables": {
+        "users": {
+            "fields": {
+                "user_id": "INT PRIMARY KEY",
+                "username": "VARCHAR(50) UNIQUE NOT NULL",
+                "password": "VARCHAR(100) NOT NULL",
+                "email": "VARCHAR(100) UNIQUE NOT NULL",
+                "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
+            }
+        },
+        "products": {
+            "fields": {
+                "product_id": "INT PRIMARY KEY",
+                "name": "VARCHAR(100) NOT NULL",
+                "description": "TEXT",
+                "price": "DECIMAL(10, 2) NOT NULL",
+                "stock_quantity": "INT NOT NULL",
+                "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
+            }
+        },
+        "orders": {
+            "fields": {
+                "order_id": "INT PRIMARY KEY",
+                "user_id": "INT",
+                "total_amount": "DECIMAL(10, 2) NOT NULL",
+                "order_date": "DATE NOT NULL",
+                "FOREIGN KEY (user_id)": "REFERENCES users(user_id)"
+            }
+        },
+        "item_n": {
+            "fields_n": {
+                "order_item_id": "INT PRIMARY KEY",
+                "order_id": "INT",
+                "product_id": "INT",
+                "quantity": "INT NOT NULL",
+                "unit_price": "DECIMAL(10, 2) NOT NULL",
+                "FOREIGN KEY (order_id)": "REFERENCES orders(order_id)",
+                "FOREIGN KEY (product_id)": "REFERENCES products(product_id)"
+            }
+        }
+    }
+}
+
+user:
+Now comes the real task. Ensure your response is in actual JSON format. Please use the example below as a guide:
+
+{
+    "tables": {
+        "users": {
+            "fields": {
+                "user_id": "INT PRIMARY KEY",
+                "username": "VARCHAR(50) UNIQUE NOT NULL",
+                "password": "VARCHAR(100) NOT NULL",
+                "email": "VARCHAR(100) UNIQUE NOT NULL",
+                "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
+            }
+        },
+        "products": {
+            "fields": {
+                "product_id": "INT PRIMARY KEY",
+                "name": "VARCHAR(100) NOT NULL",
+                "description": "TEXT",
+                "price": "DECIMAL(10, 2) NOT NULL",
+                "stock_quantity": "INT NOT NULL",
+                "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
+            }
+        },
+        "orders": {
+            "fields": {
+                "order_id": "INT PRIMARY KEY",
+                "user_id": "INT",
+                "total_amount": "DECIMAL(10, 2) NOT NULL",
+                "order_date": "DATE NOT NULL",
+                "FOREIGN KEY (user_id)": "REFERENCES users(user_id)"
+            }
+        },
+        "item_n": {
+            "fields_n": {
+                "order_item_id": "INT PRIMARY KEY",
+                "order_id": "INT",
+                "product_id": "INT",
+                "quantity": "INT NOT NULL",
+                "unit_price": "DECIMAL(10, 2) NOT NULL",
+                "FOREIGN KEY (order_id)": "REFERENCES orders(order_id)",
+                "FOREIGN KEY (product_id)": "REFERENCES products(product_id)"
+            }
+        }
+    }
+}
+
+description: {{description}}
+schema: 
+
+
+----
+
+v2:
+
+system:
+I want you to act as a professional database administrator specializing in designing effective database schemas for both Large scale and small scale applications. Given a Application and its description, I want you to generate for me a database schema that addresses the following:
+  1.Entities and Attributes, 
+  2. Relationships 
+  3.Data Types and Constraints
+  4.Normalization 
+  5.Indexes 
+  6.Unique 
+  7.Constraints and Keys
+  8. Security requirements
+  9. Scalability requirements
+  $ Application Framework and Technology Stack $
+
+Ensure that your response is in json format for easy parsing.
+
+user:
+Please generate for me a database schema for this application:
+application: {{description}}
+Ensure that your response is a valid json object.
+
+shema:

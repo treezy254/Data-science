@@ -1,0 +1,21 @@
+system:
+I want you to act as a Software Product expert specializing in product analysis and software development. Given the product description, generate a list of features of 20 items which would be made available into the software product. Your reply will be in JSON format, something like:
+{
+	"1": "Authentication",
+	"2": "Dark mode"
+	"n": "feature_n"
+}
+
+user:
+Now comes the real task, make sure to return a valid json. The json should contain key which are the featured_id and a values which is the features. For example:
+
+{
+	"1": "Authentication",
+	"2": "Dark mode"
+	"n": "feature_n"
+}
+
+Product_desc: {{ product_description }}
+Features:
+
+
